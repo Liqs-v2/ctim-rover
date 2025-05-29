@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "content": "When modifying code to fix a bug, ensure that the changes address the issue described in the bug report, maintain the original functionality of the code, and align with the documented behavior.",
+    "importance": 35
+  },
+  {
+    "id": 1,
+    "content": "When analyzing a bug report, identify the specific methods or classes mentioned and use targeted searches to locate their definitions and usages in the codebase.",
+    "importance": 15
+  },
+  {
+    "id": 2,
+    "content": "When fixing a bug, ensure that the solution is compatible with the existing codebase and adheres to the expected behavior of the components involved, especially when dealing with polymorphism or subclassing.",
+    "importance": 4
+  },
+  {
+    "id": 3,
+    "content": "When encountering a bug related to attribute or method behavior, ensure to verify the expected type, interface, and data integrity of the attribute or method in question. Adapt the code to handle variations, unexpected types, or missing data in these expectations, while avoiding unsafe operations like unsanitized input parsing or unsupported operations. Ensure that the solution is robust, adheres to the expected behavior of the system, and provides fallbacks or defaults for missing attributes or methods. Additionally, ensure that the solution integrates seamlessly with the existing codebase and does not introduce regressions. Pay special attention to how attributes like lists, dictionaries, or strings are handled, ensuring edge cases like empty, null, or binary values are properly managed. Consider the broader context of the system and its interactions, including the impact on related components.",
+    "importance": 8
+  },
+  {
+    "id": 4,
+    "content": "When fixing a bug, ensure that the solution explicitly handles edge cases, adheres to the documented behavior of the function or method, and is compatible with the expected input and output formats. Consider the broader context of the system and its interactions, including the impact on related components. Additionally, ensure that the solution integrates seamlessly with the existing codebase, does not introduce regressions, and maintains performance, readability, and robustness against unexpected inputs. Pay special attention to the logic and conditions used in the code to ensure they align with the intended behavior, and ensure that the solution is applied at the correct level of abstraction.",
+    "importance": 29
+  },
+  {
+    "id": 5,
+    "content": "When addressing issues related to formatting or output, ensure that the changes align with the expected conventions and configurations of the system, and verify that the output adheres to the required schema or format specifications.",
+    "importance": 2
+  },
+  {
+    "id": 6,
+    "content": "When modifying a method or configuration to fix a bug, ensure that the changes respect the configuration options and settings of the system, maintaining consistency with the intended behavior and user expectations. Additionally, consider the impact of changes on existing tests and ensure compatibility with the current test suite.",
+    "importance": 1
+  },
+  {
+    "id": 7,
+    "content": "When analyzing a bug, consider the possibility of incomplete or partial processing of data, especially in iterative or recursive functions, and ensure that all cases are handled comprehensively, including edge cases and unexpected inputs.",
+    "importance": 2
+  },
+  {
+    "id": 8,
+    "content": "When addressing a bug, ensure that the solution is robust against edge cases and unexpected inputs, adheres to the documented or expected behavior of the system, and considers the broader context of the system and its interactions. Additionally, ensure that the solution is efficient, does not introduce unnecessary complexity, and handles input and output data types consistently, including edge cases like empty or null values. Pay special attention to the logic and conditions used in the code to ensure they align with the intended behavior.",
+    "importance": 8
+  },
+  {
+    "id": 9,
+    "content": "When addressing issues related to data processing or iteration, ensure that all elements or items are properly initialized and validated before use to prevent runtime errors.",
+    "importance": 2
+  },
+  {
+    "id": 10,
+    "content": "When addressing issues related to data structures, ensure that the solution accounts for both individual elements and collections, handling each appropriately.",
+    "importance": 1
+  },
+  {
+    "id": 11,
+    "content": "When modifying a method to fix a bug, ensure that the changes are localized and do not require extensive modifications to other parts of the codebase unless absolutely necessary.",
+    "importance": 3
+  }
+]

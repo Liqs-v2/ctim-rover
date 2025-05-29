@@ -1,0 +1,174 @@
+{
+  "pytest_dev__pytest": [
+    {
+      "id": 0,
+      "content": "When modifying assertion rewriting logic or evaluation mechanisms, ensure that the changes handle edge cases such as unexpected types, missing attributes, or incorrect caching in the input, and verify compatibility with the existing test suite and configuration options.",
+      "importance": 3,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues related to logging configuration, ensure that changes to default formats, such as `DEFAULT_LOG_FORMAT`, are consistent with the repository's logging conventions and consider the impact on existing configurations and user expectations.",
+      "importance": 3,
+      "knowledge_type": "coding_convention"
+    }
+  ],
+  "psf__requests": [
+    {
+      "id": 0,
+      "content": "When addressing issues in the 'requests' library, consider the interaction between user-provided inputs (e.g., hooks, encodings) and the library's internal handling mechanisms, ensuring that edge cases like lists of hooks or unexpected encodings are handled gracefully.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 1,
+      "content": "When modifying or extending the behavior of methods in the 'requests' library, ensure that changes are compatible with the library's existing API and usage patterns, such as handling hooks, iterators, and encoding consistently across methods.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    }
+  ],
+  "matplotlib__matplotlib": [
+    {
+      "id": 0,
+      "content": "When fixing bugs in matplotlib, ensure compatibility with the expected behavior of the library's API, especially when dealing with extensions or customizations like projections or backends.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues in the matplotlib repository, pay attention to the specific behavior of classes and methods in the context of their usage, such as how attributes like 'axis' are implemented differently in subclasses like 'GeoAxes'.",
+      "importance": 2,
+      "knowledge_type": "architectural_pattern"
+    }
+  ],
+  "mwaskom__seaborn": [
+    {
+      "id": 0,
+      "content": "When analyzing issues in the seaborn codebase, focus on the interaction between plot components such as scales, axes, and data transformations, as these are often the source of errors or unexpected behavior.",
+      "importance": 2,
+      "knowledge_type": "repository_structure"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues related to data normalization or scaling, ensure that the solution accounts for the specific data types involved, such as boolean, categorical, or continuous data, and applies appropriate transformations or mappings to handle these types correctly.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    }
+  ],
+  "scikit_learn__scikit_learn": [
+    {
+      "id": 0,
+      "content": "When fixing bugs in scikit-learn, ensure that changes align with the library's conventions for handling edge cases, such as empty datasets or missing parameters, and provide meaningful fallbacks or error messages.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues in the scikit-learn repository, pay attention to the specific implementation details of classes and methods, such as inheritance hierarchies and method overrides, as these often determine the behavior and location of bugs.",
+      "importance": 2,
+      "knowledge_type": "repository_structure"
+    }
+  ],
+  "sympy__sympy": [
+    {
+      "id": 0,
+      "content": "When modifying code in the sympy repository, ensure that changes adhere to the library's conventions for mathematical accuracy and symbolic representation. This includes maintaining consistency in function naming, handling edge cases in mathematical operations, ensuring compatibility with symbolic computation frameworks, and preserving the integrity of symbolic expressions during transformations. Pay special attention to the handling of dimensions, units, and mathematical equivalences, ensuring that operations respect physical and mathematical principles.",
+      "importance": 4,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues in the sympy repository, focus on the specific mathematical or symbolic functionality described in the issue. Use targeted searches to locate relevant classes or methods, such as those implementing mathematical functions or symbolic operations, and ensure that fixes align with the mathematical principles, symbolic computation standards, and the modular structure of the library. Consider the implications of changes on related components, such as unit systems, tensor operations, and symbolic expansions, to maintain consistency and correctness across the library.",
+      "importance": 4,
+      "knowledge_type": "repository_structure"
+    }
+  ],
+  "django__django": [
+    {
+      "id": 0,
+      "content": "When working with Django model fields in this repository, consider the implications of changes on both the model and form representations, ensuring consistency in validation, error messaging, and the handling of primary keys during operations like deletion.",
+      "importance": 3,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 1,
+      "content": "When modifying or adding validators in this repository, ensure that the regex patterns used are robust and account for edge cases such as trailing newlines or unexpected characters.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 2,
+      "content": "When addressing issues related to validation or error messages in this repository, ensure that the error messages accurately reflect the expected input format and behavior, and consider using precise regex patterns to avoid unintended matches.",
+      "importance": 4,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 3,
+      "content": "When modifying or implementing methods in this repository, ensure that changes are localized to the specific method or class unless a broader change is necessary, and maintain compatibility with the existing codebase and its conventions.",
+      "importance": 8,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 4,
+      "content": "When addressing issues related to date parsing in this repository, ensure that the logic adheres to the relevant RFC standards, such as RFC7231, and dynamically adjusts to the current context, such as the current year, to handle edge cases like two-digit years correctly.",
+      "importance": 3,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 5,
+      "content": "When modifying utility functions in this repository, ensure that changes are consistent with the documented behavior and consider the impact on all dependent modules and functions.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 6,
+      "content": "When addressing issues related to string processing in this repository, ensure that the solution handles edge cases such as leading and trailing special characters, and adheres to the expected output format for functions like slugify.",
+      "importance": 3,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 7,
+      "content": "When working with command-line utilities in this repository, ensure that the program name and arguments are handled consistently, especially in environments where sys.argv might not be reliable.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 8,
+      "content": "When modifying or implementing methods in this repository, ensure that changes respect the expected behavior of the system, especially when dealing with named tuples or other complex data structures, and handle edge cases such as missing or unexpected arguments.",
+      "importance": 5,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 9,
+      "content": "When addressing issues related to Django's formsets in this repository, ensure that error classes are appropriately assigned to distinguish between different types of errors, such as using 'nonform' for non-form errors.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 10,
+      "content": "When working with Django's ManyToMany relationships in this repository, ensure that all attributes used in identity or hashing operations are made hashable, such as by using the make_hashable utility for lists or other non-hashable types.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 11,
+      "content": "When working with Django's admin utilities in this repository, ensure that URL generation respects the current admin site context by using the 'current_app' parameter in reverse calls.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    }
+  ],
+  "sphinx_doc__sphinx": [
+    {
+      "id": 0,
+      "content": "When modifying the Sphinx Napoleon extension, ensure that changes respect configuration options like `napoleon_use_param` and maintain consistent formatting across all parameter sections.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues related to the Sphinx autodoc extension, focus on the `sphinx/ext/autodoc` and `sphinx/util/inspect` modules, as they contain key logic for member filtering and attribute handling.",
+      "importance": 2,
+      "knowledge_type": "repository_structure"
+    }
+  ]
+}

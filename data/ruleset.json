@@ -1,0 +1,82 @@
+[
+    {
+        "id": 0,
+        "content": "Begin by systematically verifying parameters, ensuring callables that must remain un-evaluated are preserved for correct runtime usage.",
+        "importance": 11
+    },
+    {
+        "id": 1,
+        "content": "Perform targeted input validations, ensuring each parameter or feature aligns with immediate needs and preventing unwanted callability, type-mismatch, or boundary issues.",
+        "importance": 15
+    },
+    {
+        "id": 2,
+        "content": "Plan each step to identify how new or changed data flows interact with existing code paths, ensuring all relevant variables, states, and references remain in sync.",
+        "importance": 7
+    },
+    {
+        "id": 3,
+        "content": "Maintain consistent data types or numeric precision throughout calls, ensuring no intermediate conversion or dimension mismatch leads to hidden validation issues.",
+        "importance": 10
+    },
+    {
+        "id": 4,
+        "content": "Examine error messages to locate the failing logic. Also confirm if the framework\u2019s checks might be incomplete or incorrectly flag valid usage, especially for advanced lookups or edge cases.",
+        "importance": 21
+    },
+    {
+        "id": 5,
+        "content": "Always confirm each argument matches the function's parameters and is passed correctly. When a function uses another function's output, ensure the output format meets the receiving function's expectations, especially with optional parameters that may have default behaviors.",
+        "importance": 1
+    },
+    {
+        "id": 6,
+        "content": "When modifying or extending a function, track changes in all references thoroughly to preserve consistent updates, avoiding partial overshadowing or orphaned dependencies.",
+        "importance": 3
+    },
+    {
+        "id": 7,
+        "content": "Always confirm that referenced methods or variables exist, are spelled correctly, remain valid, and that decorators or partials do not obscure them.",
+        "importance": 10
+    },
+    {
+        "id": 8,
+        "content": "Always confirm an attribute\u2019s usage aligns with its type, verifying subscriptability, membership, or callability before referencing it as a dictionary, sequence, or function.",
+        "importance": 4
+    },
+    {
+        "id": 9,
+        "content": "Always account for boundary conditions or zero-length data that may demand a well-defined identity instead of raising an error.",
+        "importance": 4
+    },
+    {
+        "id": 10,
+        "content": "Carefully inspect code near bug locations, verifying that each reference (including nested paths) remains accurate and consistent for the required logic.",
+        "importance": 27
+    },
+    {
+        "id": 11,
+        "content": "When using or overriding functionalities from base classes, confirm alignment with their parameters and data flows. Check for overshadowing or conflicting definitions to maintain consistent expected behaviors.",
+        "importance": 5
+    },
+    {
+        "id": 12,
+        "content": "Focus changes on the minimal relevant locations, referencing existing methods or design patterns to maintain consistency, reduce duplication, and lower risk of new bugs.",
+        "importance": 9
+    },
+    {
+        "id": 13,
+        "content": "Isolate responsibilities: pass minimal data to each helper or constructor, ensuring each call receives exactly the format or type it requires.",
+        "importance": 3
+    },
+    {
+        "id": 14,
+        "content": "When implementing aggregator logic, provide a proper identity element for empty inputs to sustain meaningful outcomes and avoid needless exceptions.",
+        "importance": 1
+    },
+    {
+        "id": 15,
+        "content": "When using natural key relationships, confirm dependent keys are resolved within the same context, preventing partial lookups or missing dependencies.",
+        "importance": 3
+    }
+]

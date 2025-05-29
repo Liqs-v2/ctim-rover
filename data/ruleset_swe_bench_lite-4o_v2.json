@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "content": "Use clear and concise logic to handle conditions and constraints in code, ensuring that all possible scenarios are accounted for, and align with the documented requirements.",
+    "importance": 5
+  },
+  {
+    "id": 1,
+    "content": "When modifying code, ensure that the changes align with the documented behavior and intended functionality of the affected components.",
+    "importance": 2
+  },
+  {
+    "id": 2,
+    "content": "Ensure edge cases and special conditions are explicitly handled in code, including cases where input values are unconventional or unexpected, and ensure all possible states and scenarios are accounted for.",
+    "importance": 7
+  },
+  {
+    "id": 3,
+    "content": "When analyzing a bug, identify the specific function or method where the issue occurs and examine its logic and parameters for inconsistencies.",
+    "importance": 16
+  },
+  {
+    "id": 4,
+    "content": "When fixing a bug, ensure that the fix addresses the root cause and does not introduce new issues by carefully analyzing the context and dependencies.",
+    "importance": 36
+  },
+  {
+    "id": 5,
+    "content": "When fixing a bug, ensure the fix is modular, avoids unnecessary dependencies, and is efficient, allowing for future extensions or customizations, especially in reusable or widely-used components. Consider the broader impact of the fix and ensure it aligns with the overall system architecture.",
+    "importance": 6
+  },
+  {
+    "id": 6,
+    "content": "When fixing a bug, ensure that the fix integrates seamlessly with the existing codebase and adheres to the project's coding standards.",
+    "importance": 11
+  },
+  {
+    "id": 7,
+    "content": "When analyzing a bug, consider the possibility of unhandled cases in the logic that could lead to runtime errors or incorrect behavior.",
+    "importance": 2
+  },
+  {
+    "id": 8,
+    "content": "When analyzing a bug, consider the possibility of incorrect assumptions in the code about the input data, its structure, or its encoding.",
+    "importance": 4
+  },
+  {
+    "id": 9,
+    "content": "When fixing a bug, ensure the fix is backward-compatible and does not break existing functionality unless explicitly intended. Document any changes to expected behavior and provide clear reasoning for the changes, especially for widely-used components.",
+    "importance": 5
+  },
+  {
+    "id": 10,
+    "content": "When fixing a bug, ensure the fix addresses all edge cases and maintains compatibility with the expected behavior of the system, especially when dealing with diverse input types or configurations. Validate the fix against the documented requirements and ensure it integrates seamlessly with the existing codebase.",
+    "importance": 6
+  },
+  {
+    "id": 11,
+    "content": "When analyzing a bug, consider the possibility of misinterpreted or ambiguous specifications leading to incorrect assumptions in the code.",
+    "importance": 2
+  }
+]

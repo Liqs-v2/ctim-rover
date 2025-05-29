@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "content": "Use error messages and stack traces to pinpoint the exact location of bugs by identifying the specific line number, method, and file where the error occurs before investigating the surrounding code context.",
+    "importance": 7
+  },
+  {
+    "id": 1,
+    "content": "When adding new parameters or extending method functionality, ensure backward compatibility by making new parameters optional with sensible defaults, and verify the change propagates correctly through inheritance hierarchies and superclass method calls.",
+    "importance": 6
+  },
+  {
+    "id": 2,
+    "content": "Before modifying code, analyze the existing method's behavior through its implementation, inheritance hierarchy, and configuration dependencies, paying special attention to how behavior changes based on different settings to maintain consistency across all code paths.",
+    "importance": 24
+  },
+  {
+    "id": 3,
+    "content": "When searching for bug locations, first identify key methods and classes mentioned in the issue description, then use targeted search queries to gather relevant code context, focusing on constructor methods, property getters/setters, and core data processing logic where bugs commonly occur.",
+    "importance": 17
+  },
+  {
+    "id": 4,
+    "content": "When fixing bugs in core functionality, analyze the data structure and format requirements of the output (like XML schemas, JSON formats, etc.) to ensure generated content follows the expected structure and includes all required attributes while maintaining backward compatibility.",
+    "importance": 2
+  },
+  {
+    "id": 5,
+    "content": "When fixing bugs involving data processing or transformations, analyze both the core transformation logic and aggregation operations, ensuring that individual element processing and group-level constraints are correctly implemented and validated against the specified requirements.",
+    "importance": 20
+  },
+  {
+    "id": 6,
+    "content": "When fixing bugs involving data types, conversions, or temporal values, analyze both the current implementation and relevant standards/RFCs to ensure compliance, paying special attention to edge cases and implementing dynamic calculations that adapt to runtime conditions rather than using hardcoded values.",
+    "importance": 12
+  },
+  {
+    "id": 7,
+    "content": "When modifying object state or attributes, analyze the object's lifecycle and state transitions to identify all points where the state should be updated, ensuring consistent state management across all code paths including error cases and early returns.",
+    "importance": 9
+  },
+  {
+    "id": 8,
+    "content": "When fixing bugs involving configuration settings or flags that affect data processing, analyze how these settings propagate through the system and ensure consistent behavior across all code paths, paying special attention to how default values and empty configurations should be interpreted.",
+    "importance": 5
+  },
+  {
+    "id": 9,
+    "content": "When fixing bugs involving method or attribute access patterns, implement graceful fallback mechanisms using try-catch blocks to handle different attribute types and access patterns, ensuring compatibility across different implementations while maintaining the intended functionality.",
+    "importance": 8
+  },
+  {
+    "id": 10,
+    "content": "When fixing bugs involving mathematical or physical equivalences, analyze the underlying domain-specific rules and relationships to ensure comparisons and transformations account for equivalent forms, not just exact matches, by converting values to canonical representations before comparison.",
+    "importance": 2
+  },
+  {
+    "id": 11,
+    "content": "When fixing bugs in mathematical or algorithmic functions, carefully analyze the documented mathematical properties and constraints to ensure the implementation correctly enforces all conditions, paying special attention to total vs individual constraints in aggregation operations.",
+    "importance": 4
+  }
+]

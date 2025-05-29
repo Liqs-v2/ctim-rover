@@ -1,0 +1,180 @@
+{
+  "matplotlib__matplotlib": [
+    {
+      "id": 0,
+      "content": "In this repository, when dealing with graphical elements or rendering, ensure that all attributes and methods used are properly initialized and compatible with the expected interface. For example, attributes like 'axis' in custom axes classes may not behave as dictionaries and require alternative handling.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues in this repository, pay attention to the specific behavior of attributes and methods in custom classes like GeoAxes or Poly3DCollection, as they may differ from standard implementations. Ensure compatibility by checking the type and interface of these attributes or methods before use.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    }
+  ],
+  "django__django": [
+    {
+      "id": 0,
+      "content": "When working with migration-related commands in this repository, consider the database features such as transactional DDL support, and ensure that logic respects these features to avoid unnecessary transaction wrapping. Additionally, ensure that the logic adheres to the expected behavior of the database backend and handles edge cases like unsupported operations gracefully.",
+      "importance": 3,
+      "knowledge_type": "data_flow"
+    },
+    {
+      "id": 1,
+      "content": "When modifying or adding validation logic in this repository, ensure that the changes are consistent with the existing validation framework, such as the use of `RegexValidator` for username validation or `make_hashable` for ensuring hashability of attributes.",
+      "importance": 3,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 2,
+      "content": "In this repository, username validation is implemented using regex patterns in classes like `ASCIIUsernameValidator` and `UnicodeUsernameValidator`. Ensure that regex patterns are robust and do not inadvertently allow invalid inputs, such as trailing newlines.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 3,
+      "content": "When addressing issues in this repository, consider that certain fields, such as `DurationField`, `ForeignKey`, and `ManyToManyRel`, have specific expected formats and error messages that must align with the actual behavior of the field. Ensure that changes to these fields maintain consistency with their documented and expected usage, and handle edge cases like duplicate entries, invalid constraints, or unhashable types.",
+      "importance": 7,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 4,
+      "content": "When handling content types in HTTP responses, ensure that all supported types, such as memoryview objects, are correctly processed and converted to the expected format, maintaining consistency with the documented behavior.",
+      "importance": 5,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 5,
+      "content": "When modifying or adding logic for model instance deletion, ensure that the primary key (PK) is correctly set to None after deletion, especially for models without dependencies, to reflect the instance's non-existence in the database.",
+      "importance": 2,
+      "knowledge_type": "data_flow"
+    },
+    {
+      "id": 6,
+      "content": "When addressing issues related to HTTP date parsing, ensure that the logic adheres to the relevant RFC standards, such as RFC7231, and dynamically calculates values like two-digit years based on the current date to ensure compliance.",
+      "importance": 5,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 7,
+      "content": "When modifying utility functions like `slugify`, ensure that the changes handle edge cases such as leading and trailing special characters, and maintain compatibility with the expected input and output formats.",
+      "importance": 4,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 8,
+      "content": "When addressing issues related to URL generation in this repository, ensure that the generated URLs respect the current application context, such as custom admin site paths, by using parameters like 'current_app' in reverse calls.",
+      "importance": 3,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 9,
+      "content": "When modifying serialization or deserialization logic in this repository, ensure that all attributes, including optional ones like 'extra_tags', are consistently handled to preserve their values, including empty strings, across the serialization-deserialization cycle.",
+      "importance": 2,
+      "knowledge_type": "data_flow"
+    },
+    {
+      "id": 10,
+      "content": "When handling string operations in utility functions, ensure that the logic accounts for empty or null strings to prevent runtime errors such as `IndexError`.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 11,
+      "content": "When addressing issues related to querysets and model relationships, ensure that the solution respects the behavior of proxy models and their concrete counterparts, especially in methods like `select_related` and `only`.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    }
+  ],
+  "mwaskom__seaborn": [
+    {
+      "id": 0,
+      "content": "When modifying methods in this repository, ensure that changes respect the modular structure of the codebase, particularly the separation of concerns between data processing, plotting, and scale setup. This helps maintain the clarity and maintainability of the code.",
+      "importance": 2,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues related to data processing in this repository, ensure that the data types of inputs are explicitly checked and handled appropriately, especially for edge cases like boolean or null values. This is crucial for maintaining compatibility with the library's data handling mechanisms.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    }
+  ],
+  "scikit_learn__scikit_learn": [
+    {
+      "id": 0,
+      "content": "In the scikit-learn repository, ensure that changes to methods or classes maintain compatibility with the expected behavior of the library's API, as users rely on consistent and predictable functionality.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues in the scikit-learn repository, pay attention to the specific implementation details of classes and methods, such as inheritance hierarchies and method overrides, as these often determine the behavior and location of bugs.",
+      "importance": 2,
+      "knowledge_type": "repository_structure"
+    }
+  ],
+  "pytest_dev__pytest": [
+    {
+      "id": 0,
+      "content": "When analyzing issues related to assertion rewriting or XML report generation, pay attention to the handling of edge cases in the AST parsing, transformation process, or XML schema adherence, such as non-standard docstring formats, unexpected first expressions in test files, or missing attributes in XML elements.",
+      "importance": 3,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues related to logging configuration or caching mechanisms, ensure that changes to default formats or caching strategies are consistent with the repository's conventions and consider the impact on command-line options, configuration files, and evaluation contexts.",
+      "importance": 3,
+      "knowledge_type": "coding_convention"
+    }
+  ],
+  "sphinx_doc__sphinx": [
+    {
+      "id": 0,
+      "content": "When modifying methods in the Sphinx Napoleon extension, ensure that changes respect configuration options like `napoleon_use_param` and maintain consistency across related sections such as 'Parameters' and 'Other Parameters'.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues related to the Sphinx autodoc extension, focus on the `sphinx/ext/autodoc` module, particularly the `__init__.py` file, as it contains key logic for member filtering and documentation generation.",
+      "importance": 2,
+      "knowledge_type": "repository_structure"
+    }
+  ],
+  "sympy__sympy": [
+    {
+      "id": 0,
+      "content": "When exploring the sympy codebase to locate bugs, prioritize searching within the modules and classes directly related to the mathematical or symbolic functionality described in the issue. Use targeted searches for specific methods, classes, or code snippets mentioned in the issue, and consider the modular structure of the library to identify relevant components.",
+      "importance": 4,
+      "knowledge_type": "repository_structure"
+    },
+    {
+      "id": 1,
+      "content": "When modifying code in the sympy repository, ensure that changes respect the modular structure of the library, where each module handles specific mathematical or symbolic domains, and avoid introducing dependencies that could disrupt this modularity.",
+      "importance": 4,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 2,
+      "content": "When addressing issues in the sympy repository, focus on the specific mathematical or symbolic functionality described in the issue. Ensure that the solution adheres to the mathematical correctness, symbolic consistency, and expected behavior of the library. Pay attention to edge cases, such as equivalent but not identical dimensions or symbolic representations, and ensure the solution integrates seamlessly with the existing modular structure.",
+      "importance": 4,
+      "knowledge_type": "error_pattern"
+    }
+  ],
+  "psf__requests": [
+    {
+      "id": 0,
+      "content": "When addressing issues related to data decoding or encoding, ensure that the solution adheres to the expected encoding standards and handles edge cases such as missing or incorrect encoding information gracefully.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 1,
+      "content": "When modifying or adding methods in the codebase, ensure that the changes respect the existing conventions for handling input types, such as supporting both single values and collections where applicable, and ensure compatibility with the expected behavior of the system.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    }
+  ]
+}

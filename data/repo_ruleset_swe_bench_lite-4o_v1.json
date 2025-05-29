@@ -1,0 +1,138 @@
+{
+  "matplotlib__matplotlib": [
+    {
+      "id": 0,
+      "content": "When fixing bugs in this repository, consider the modular structure of the codebase, where specific functionalities are often encapsulated in dedicated modules like mpl_toolkits or matplotlib.backends. This modularity can guide targeted searches and localized fixes.",
+      "importance": 2,
+      "knowledge_type": "repository_structure"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues in this repository, pay attention to the specific behavior of attributes and methods in custom classes like GeoAxes or Poly3DCollection, as they may differ from standard implementations. Ensure compatibility with the expected usage patterns in the repository.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    }
+  ],
+  "pytest_dev__pytest": [
+    {
+      "id": 0,
+      "content": "When analyzing issues related to assertion rewriting, focus on the `src/_pytest/assertion/rewrite.py` file, particularly methods like `is_rewrite_disabled`, `rewrite_asserts`, and `_rewrite_test`, as they are central to the mechanism.",
+      "importance": 1,
+      "knowledge_type": "repository_structure"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues related to logging or output formatting, ensure that changes to default formats, such as `DEFAULT_LOG_FORMAT`, or output schemas, such as JUnit XML, are consistent with the repository's conventions and consider the impact on existing configurations and user expectations.",
+      "importance": 3,
+      "knowledge_type": "coding_convention"
+    }
+  ],
+  "sphinx_doc__sphinx": [
+    {
+      "id": 0,
+      "content": "When modifying methods in the Sphinx repository, ensure that changes respect the configuration options provided by the system, such as 'napoleon_use_param', and maintain consistency in behavior across similar sections or features.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues in the Sphinx repository, focus on the specific extensions or modules related to the issue, such as 'autodoc' or 'napoleon', and analyze their configuration options and how they interact with the codebase.",
+      "importance": 2,
+      "knowledge_type": "repository_structure"
+    }
+  ],
+  "psf__requests": [
+    {
+      "id": 0,
+      "content": "When addressing issues related to data decoding or encoding, ensure that the solution adheres to the expected encoding standards of the system, and verify that the decoding process is robust against edge cases such as missing or incorrect encoding information.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 1,
+      "content": "When modifying or adding methods in the codebase, ensure that the changes respect the existing patterns for handling input types, such as supporting both single values and collections where applicable, and ensure compatibility with the expected behavior of the system.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    }
+  ],
+  "mwaskom__seaborn": [
+    {
+      "id": 0,
+      "content": "When analyzing issues in the seaborn codebase, focus on the interaction between plot setup methods and scale setup methods, as these are often central to data processing and visualization logic.",
+      "importance": 2,
+      "knowledge_type": "repository_structure"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues related to data normalization or scaling, ensure that the data types are explicitly checked and handled appropriately, especially for boolean and categorical data, to avoid unsupported operations.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    }
+  ],
+  "django__django": [
+    {
+      "id": 0,
+      "content": "When analyzing issues in Django, focus on the specific validators, fields, methods, or utility functions mentioned in the issue and locate their definitions in the codebase to understand their current implementation and behavior. Use targeted searches to locate relevant code sections quickly, and consider the relationships between models, forms, views, admin site configurations, and caching mechanisms when exploring the codebase.",
+      "importance": 10,
+      "knowledge_type": "repository_structure"
+    },
+    {
+      "id": 1,
+      "content": "When working with Django model fields and relationships, consider the implications of changes on both the model and form field counterparts to ensure consistency in behavior and validation. Pay attention to how changes in model fields affect form field generation, validation logic, related query behavior, admin site integration, and caching strategies.",
+      "importance": 9,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 2,
+      "content": "When addressing issues related to error messages or sensitive data handling, ensure that the messages accurately describe the expected input format and align with the actual behavior of the system, and that sensitive data is properly masked or sanitized.",
+      "importance": 3,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 3,
+      "content": "When modifying Django model methods, ensure that changes respect the lifecycle of model instances, such as setting primary keys to None after deletion if the instance no longer exists in the database.",
+      "importance": 3,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 4,
+      "content": "When modifying Django's query-related methods, ensure that the changes respect the relationships between models, including proxy models and their concrete counterparts, and maintain the expected behavior of query optimizations like select_related and only.",
+      "importance": 2,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 5,
+      "content": "When addressing issues in Django's migration framework, ensure that operations like AlterField are optimized correctly by considering their interactions and potential reductions, maintaining the integrity and efficiency of the migration process.",
+      "importance": 2,
+      "knowledge_type": "architectural_pattern"
+    }
+  ],
+  "scikit_learn__scikit_learn": [
+    {
+      "id": 0,
+      "content": "When fixing bugs in scikit-learn, ensure that changes align with the library's design principles, such as modularity, reusability, and adherence to mathematical correctness, as these are critical for maintaining the integrity of the library.",
+      "importance": 2,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues in the scikit-learn repository, pay attention to the specific implementation details of classes and methods, such as inheritance hierarchies and method overrides, as these often determine the behavior and location of bugs.",
+      "importance": 2,
+      "knowledge_type": "repository_structure"
+    }
+  ],
+  "sympy__sympy": [
+    {
+      "id": 0,
+      "content": "When fixing issues in the codebase, pay attention to compatibility between different versions of Python, especially in areas involving serialization, deserialization, string formatting, and handling of symbolic computations.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 1,
+      "content": "When addressing issues related to mathematical functions, symbolic computation, or set operations, ensure that the solution adheres to the mathematical conventions and expected symbolic representations, especially in the context of LaTeX printing, serialization, set intersection handling, and dimension equivalence in physical computations.",
+      "importance": 4,
+      "knowledge_type": "error_pattern"
+    }
+  ]
+}

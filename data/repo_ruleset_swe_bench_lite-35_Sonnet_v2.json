@@ -1,0 +1,138 @@
+{
+  "mwaskom__seaborn": [
+    {
+      "id": 0,
+      "content": "In seaborn's scale system, data transformations occur in the _setup methods of scale classes. When modifying these, ensure proper handling of edge cases like boolean data, None values, and non-numeric types by converting data appropriately before mathematical operations.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 1,
+      "content": "Seaborn is a statistical data visualization library built on matplotlib. When fixing bugs, pay special attention to data type handling in statistical transformations and scale computations, as these operations often assume numeric data types and may fail with categorical, boolean or null values.",
+      "importance": 2,
+      "knowledge_type": "application_domain"
+    }
+  ],
+  "django__django": [
+    {
+      "id": 0,
+      "content": "Django is a web framework handling HTTP requests, user authentication, database operations, and caching. Common edge cases include database compatibility, character encoding, user input validation, parameter handling (None values, optional parameters), and race conditions in file-based operations.",
+      "importance": 4,
+      "knowledge_type": "application_domain"
+    },
+    {
+      "id": 1,
+      "content": "Django's validation logic often uses regular expressions. When modifying these patterns, consider Python's regex quirks (like $ matching newlines) and use \\A and \\Z for strict string boundary matching.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 2,
+      "content": "Error handling in Django follows consistent patterns: error messages in 'default_error_messages' dictionaries, error classes with specific CSS classes (nonfield, nonform), and internationalization via _(). Follow these patterns when modifying error handling.",
+      "importance": 3,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 3,
+      "content": "Django uses a dual-layer field system with parallel implementations in models and forms. When fixing field-related bugs, check both implementations and their interactions, especially for relationship fields (ManyToMany, ForeignKey) and proxy models that require special handling of metadata access (_meta), field resolution, and identity.",
+      "importance": 6,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 4,
+      "content": "Django's model operations (create, update, delete) follow strict state management patterns. After state-changing operations, ensure model attributes (especially primary keys) reflect the new state consistently.",
+      "importance": 3,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 5,
+      "content": "Django's text processing and template rendering functions handle both ASCII and Unicode data with specific patterns. When modifying these functions, consider Unicode normalization forms (NFKC/NFKD), explicit encoding/decoding steps, autoescape contexts in templates, and distinguish between None and empty string values in serialization/deserialization.",
+      "importance": 4,
+      "knowledge_type": "error_pattern"
+    }
+  ],
+  "pytest_dev__pytest": [
+    {
+      "id": 0,
+      "content": "Pytest is a testing framework that heavily uses Python's AST manipulation, dynamic code execution, and XML report generation capabilities. When fixing bugs, consider how changes affect test collection, assertion rewriting, property evaluation across different Python environments, and XML report generation.",
+      "importance": 3,
+      "knowledge_type": "application_domain"
+    },
+    {
+      "id": 1,
+      "content": "Pytest's core functionality is organized in specialized modules under src/_pytest/, including assertion rewriting, logging, mark evaluation, and report generation. Changes to these modules can affect the entire test execution pipeline and should maintain consistency with pytest's plugin architecture.",
+      "importance": 3,
+      "knowledge_type": "repository_structure"
+    }
+  ],
+  "scikit_learn__scikit_learn": [
+    {
+      "id": 0,
+      "content": "Key scikit-learn classes follow a consistent inheritance pattern where core functionality is implemented in base classes (e.g., BaseLibSVM, _BaseRidgeCV) with specialized variants inheriting and extending this functionality. Bug fixes often need to be applied at the base class level.",
+      "importance": 2,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 1,
+      "content": "In scikit-learn's machine learning algorithms, numerical computations often involve eigenvalue decomposition, matrix operations, and statistical transformations. When fixing bugs, ensure proper handling of edge cases like empty matrices, zero eigenvalues, or sign ambiguities in eigenvectors to maintain mathematical correctness.",
+      "importance": 2,
+      "knowledge_type": "application_domain"
+    }
+  ],
+  "matplotlib__matplotlib": [
+    {
+      "id": 0,
+      "content": "Matplotlib is a visualization library with multiple backend implementations and specialized axis types. Changes must handle both standard and specialized implementations (e.g., GeoAxes vs regular Axes) while maintaining consistent behavior across different plotting contexts.",
+      "importance": 2,
+      "knowledge_type": "application_domain"
+    },
+    {
+      "id": 1,
+      "content": "When fixing bugs in matplotlib's visualization components, pay special attention to attribute initialization timing and fallback values. Components may need to access attributes before they are fully initialized, especially during rendering or backend-specific operations.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    }
+  ],
+  "sympy__sympy": [
+    {
+      "id": 0,
+      "content": "Core functionality in SymPy follows a class-based architecture where mathematical objects are represented as classes with specific evaluation and printing methods. Each class often has multiple printing implementations (LaTeX, string, pretty) that must maintain consistent behavior. Changes must preserve mathematical properties across all representations.",
+      "importance": 4,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 1,
+      "content": "SymPy is a Python library for symbolic mathematics. When fixing bugs, ensure mathematical correctness by preserving properties like set theory rules, proper handling of symbolic expressions, and mathematical equivalences (e.g., dimensional analysis, algebraic equivalences). Consider both exact equality and mathematical equivalence in comparisons.",
+      "importance": 4,
+      "knowledge_type": "application_domain"
+    }
+  ],
+  "psf__requests": [
+    {
+      "id": 0,
+      "content": "The requests library handles binary/string encoding conversions across Python 2/3 versions. When modifying string processing, ensure compatibility by properly decoding bytes to strings using appropriate encodings (utf-8/ascii) and handle encoding-specific edge cases like binary HTTP methods.",
+      "importance": 2,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 1,
+      "content": "The requests library uses a layered architecture where Request and Response classes handle HTTP operations. Key methods like Request.__init__ and Response.__init__ initialize core attributes (headers, cookies, hooks) with specific data structures (CaseInsensitiveDict for headers, lists for hooks) that must be preserved when modifying.",
+      "importance": 2,
+      "knowledge_type": "architectural_pattern"
+    }
+  ],
+  "sphinx_doc__sphinx": [
+    {
+      "id": 0,
+      "content": "Sphinx is a documentation generator that processes Python docstrings and reStructuredText files. Key components include docstring parsers (napoleon), automatic API documentation (autodoc), and member filtering. Common edge cases involve empty collections (__all__=[]) and attribute inheritance.",
+      "importance": 2,
+      "knowledge_type": "application_domain"
+    },
+    {
+      "id": 1,
+      "content": "In Sphinx's autodoc and napoleon extensions, documentation formatting is controlled by configuration options (e.g., napoleon_use_param, autodoc_inherit_docstrings). When fixing bugs, ensure formatting logic is consistently applied across all similar section types (Parameters, Other Parameters, etc.) within docstring parsers.",
+      "importance": 2,
+      "knowledge_type": "coding_convention"
+    }
+  ]
+}

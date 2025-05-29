@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "content": "For bugs involving data processing or filtering, carefully analyze how data transformations might introduce duplicates or data loss. Consider adding deduplication steps when aggregating or joining data.",
+    "importance": 1
+  },
+  {
+    "id": 1,
+    "content": "When modifying configuration formats or string patterns, ensure changes maintain consistency across all usage points. Consider format dependencies in parsing logic, documentation, and help messages. Implement changes uniformly across default values and their corresponding configuration options.",
+    "importance": 6
+  },
+  {
+    "id": 2,
+    "content": "Search for both the definition and usage of potentially buggy code elements. Understanding how a component is defined and where/how it's used provides crucial context for fixing bugs correctly.",
+    "importance": 10
+  },
+  {
+    "id": 3,
+    "content": "When analyzing bug reports, identify key components and specifications (RFCs, standards) they must comply with. Use search APIs to locate component definitions, then examine implementation details against specification requirements to ensure full compliance.",
+    "importance": 18
+  },
+  {
+    "id": 4,
+    "content": "When fixing bugs in data transformation methods, verify that aggregation operations (sum, max, min) align with the intended logic. Add validation for edge cases, ensure proper type handling, and verify that transformations preserve the required mathematical or logical properties.",
+    "importance": 9
+  },
+  {
+    "id": 5,
+    "content": "For bugs in class hierarchies or interfaces, examine both standard and specialized implementations to understand behavioral differences. Pay special attention to method overrides, attribute access patterns, and ensure consistent behavior across different implementations.",
+    "importance": 7
+  },
+  {
+    "id": 6,
+    "content": "When fixing bugs involving state management or attribute access, implement proper state validation and cleanup. Consider how object state should be updated after operations like deletion or invalidation, and ensure consistent state across all code paths, especially when handling success/failure conditions.",
+    "importance": 9
+  },
+  {
+    "id": 7,
+    "content": "When fixing bugs in data filtering or transformation methods, carefully analyze both the filtering criteria and control flow paths. Consider how empty/null values affect filtering decisions, and ensure each code path handles these cases consistently while preserving intended behavior.",
+    "importance": 10
+  },
+  {
+    "id": 8,
+    "content": "When adding new attributes or properties to existing data structures (XML, JSON, etc.), ensure proper initialization timing and scope. Place initialization code at the appropriate level, maintain consistent attribute naming conventions, and ensure additions align with the existing structure's schema or format.",
+    "importance": 2
+  },
+  {
+    "id": 9,
+    "content": "When fixing compatibility issues between different software or language versions, analyze type handling differences (especially string/bytes encoding), API changes, and data representation variations. Implement version-aware solutions that properly decode/encode data while maintaining consistent behavior.",
+    "importance": 6
+  },
+  {
+    "id": 10,
+    "content": "When fixing bugs in mathematical or algorithmic functions, implement dynamic calculations based on current context rather than hardcoded thresholds. Consider relative comparisons, boundary conditions, and ensure calculations adapt to runtime conditions while maintaining specification compliance.",
+    "importance": 6
+  },
+  {
+    "id": 11,
+    "content": "When fixing bugs related to configuration or attribute handling, carefully analyze the distinction between an attribute being undefined versus explicitly set to an empty value. These cases often require different handling logic to maintain expected behavior.",
+    "importance": 1
+  }
+]

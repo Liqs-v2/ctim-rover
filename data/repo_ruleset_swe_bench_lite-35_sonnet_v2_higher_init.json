@@ -1,0 +1,138 @@
+{
+  "pytest_dev__pytest": [
+    {
+      "id": 0,
+      "content": "Pytest uses a configuration-driven approach where default values and caching mechanisms (like marker evaluation caching) are defined at module level and can be overridden. Changes must consider both configuration paths and caching implications for test execution.",
+      "importance": 5,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 1,
+      "content": "In pytest's codebase, test execution features (assertions, markers, reporting) are handled in dedicated modules under src/_pytest/. XML reports follow JUnit schema standards, and changes must maintain schema compliance while preserving backward compatibility.",
+      "importance": 5,
+      "knowledge_type": "repository_structure"
+    }
+  ],
+  "django__django": [
+    {
+      "id": 0,
+      "content": "Django's regex patterns for validation should use \\A and \\Z anchors instead of ^ and $ when exact string matching is required, as $ allows trailing newlines in Python regex. This applies to all validator classes using RegexValidator.",
+      "importance": 4,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 1,
+      "content": "Django's database-related code considers database backend capabilities through connection.features flags and wraps critical operations in transactions. When fixing database-related bugs, check if the behavior should vary based on backend capabilities and ensure proper transaction handling through django.db.transaction.",
+      "importance": 5,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 2,
+      "content": "Django's command-line interface is built around ManagementUtility and CommandParser in django/core/management/, with consistent patterns for handling program names, arguments, and subcommands. Command logic is implemented in handle() methods of Command classes.",
+      "importance": 5,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 3,
+      "content": "Django's validation logic and error messages are centralized in validator classes and field classes that inherit from Field. Error handling uses specialized classes (ErrorList, ErrorDict) with CSS classes (nonfield, nonform) to differentiate error types. When fixing validation bugs, focus on these classes and their error styling patterns.",
+      "importance": 5,
+      "knowledge_type": "architectural_pattern"
+    },
+    {
+      "id": 4,
+      "content": "Django's date/time parsing follows specific RFCs (e.g., RFC7231) with implementations in django/utils/http.py. When fixing temporal bugs, analyze both the RFC requirements and Django's existing parsing patterns to maintain consistency.",
+      "importance": 1,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 5,
+      "content": "Django's model state management centers on primary keys (PKs) and the Collector class in django/db/models/deletion.py. When fixing model-related bugs, analyze how model state changes propagate through collector methods and signals.",
+      "importance": 2,
+      "knowledge_type": "architectural_pattern"
+    }
+  ],
+  "sympy__sympy": [
+    {
+      "id": 0,
+      "content": "Core mathematical functionality in SymPy uses deep inheritance hierarchies with Basic as the root class. Modules under sympy/core/ define fundamental types, while sympy/functions/ contains mathematical functions. Classes often implement special methods (_eval_*, _sympy_) for customized mathematical behavior.",
+      "importance": 6,
+      "knowledge_type": "repository_structure"
+    },
+    {
+      "id": 1,
+      "content": "SymPy is a symbolic mathematics library where expressions remain unevaluated until explicitly computed. When fixing bugs, ensure correct handling of symbolic vs numeric evaluation, proper argument validation in mathematical operations, and consider mathematical equivalences (like dimensional analysis, algebraic relationships) beyond exact equality comparisons.",
+      "importance": 6,
+      "knowledge_type": "application_domain"
+    }
+  ],
+  "sphinx_doc__sphinx": [
+    {
+      "id": 0,
+      "content": "Sphinx is a documentation generator that processes structured docstrings and markup to generate formatted documentation. When fixing bugs, pay attention to docstring parsing methods in classes like GoogleDocstring and NumpyDocstring that handle different documentation styles and formats.",
+      "importance": 4,
+      "knowledge_type": "application_domain"
+    },
+    {
+      "id": 1,
+      "content": "In Sphinx's autodoc extension, member documentation behavior is controlled through configuration flags and special attributes like __all__. When fixing documentation-related bugs, analyze both the configuration settings (like napoleon_use_param) and special module/class attributes that affect member visibility and formatting.",
+      "importance": 4,
+      "knowledge_type": "architectural_pattern"
+    }
+  ],
+  "scikit_learn__scikit_learn": [
+    {
+      "id": 0,
+      "content": "Scikit-learn is a mathematical, scientific computing library focused on machine learning algorithms. Core functionality is implemented in base classes (e.g., BaseLibSVM, _BaseRidgeCV) with specific variants inheriting and extending them. Key files for model implementations are organized by algorithm type in subdirectories like linear_model/, svm/, decomposition/.",
+      "importance": 4,
+      "knowledge_type": "application_domain"
+    },
+    {
+      "id": 1,
+      "content": "In scikit-learn's machine learning algorithms, numerical stability and consistent results are critical. When fixing bugs in mathematical operations, ensure proper handling of edge cases like zero-length arrays, empty support vectors, or sign ambiguities in eigenvalue decompositions to prevent numerical errors while maintaining mathematical correctness.",
+      "importance": 4,
+      "knowledge_type": "error_pattern"
+    }
+  ],
+  "psf__requests": [
+    {
+      "id": 0,
+      "content": "When modifying data handling in the requests library, ensure compatibility with both single values and collections (lists, dicts) as many methods support both formats. This is especially important for hooks, parameters, and HTTP headers.",
+      "importance": 4,
+      "knowledge_type": "coding_convention"
+    },
+    {
+      "id": 1,
+      "content": "The requests library uses a layered architecture where Request and Response classes in models.py handle core HTTP functionality. Key methods like __init__ and request in these classes often need to handle both string and bytes data types correctly, especially for Python 2/3 compatibility.",
+      "importance": 4,
+      "knowledge_type": "architectural_pattern"
+    }
+  ],
+  "mwaskom__seaborn": [
+    {
+      "id": 0,
+      "content": "In seaborn's scale transformation pipeline, data type checks should be performed before mathematical operations, especially for boolean and categorical data which require special handling to avoid numpy operation errors while maintaining visual consistency.",
+      "importance": 4,
+      "knowledge_type": "error_pattern"
+    },
+    {
+      "id": 1,
+      "content": "Seaborn is a statistical data visualization library built on matplotlib that handles data transformations and plotting. When fixing bugs, pay special attention to data type handling, normalization operations, and scale transformations as these are core components that affect plot generation.",
+      "importance": 4,
+      "knowledge_type": "application_domain"
+    }
+  ],
+  "matplotlib__matplotlib": [
+    {
+      "id": 0,
+      "content": "Matplotlib is a mathematical visualization library with multiple backend implementations (PS, PDF, SVG, etc.) and axis types. When modifying rendering code, ensure compatibility across different axis types (GeoAxes, Axes3D) and backends by using generic matplotlib APIs when possible.",
+      "importance": 4,
+      "knowledge_type": "application_domain"
+    },
+    {
+      "id": 1,
+      "content": "In matplotlib, color-related attributes often have both 2D and 3D versions (e.g., _facecolors2d and _facecolor3d) that need to be synchronized. When accessing these attributes, implement fallback mechanisms to handle cases where one version might not be initialized yet.",
+      "importance": 4,
+      "knowledge_type": "coding_convention"
+    }
+  ]
+}

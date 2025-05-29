@@ -1,0 +1,7 @@
+name: auto-code-rover
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip:
+      - -r requirements.txt

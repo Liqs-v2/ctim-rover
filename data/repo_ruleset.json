@@ -1,0 +1,252 @@
+{
+    "sympy": [
+        {
+            "id": 0,
+            "content": "When generating function prototypes for array-like arguments, especially MatrixSymbol, maintain consistent pointer usage and code conventions. Ensure references remain aligned with existing code generation approaches to prevent dimension or type mismatches.",
+            "importance": 2,
+            "knowledge_type": "coding_convention"
+        },
+        {
+            "id": 1,
+            "content": "Cross-verify code generation logic for single-element tuples, ensuring a trailing comma is included to preserve tuple semantics and avoid unintended scalars.",
+            "importance": 3,
+            "knowledge_type": "error_pattern"
+        },
+        {
+            "id": 2,
+            "content": "When modifying membership or solution sets, ensure correctness in methods like as_set that map symbolic membership (Contains) to actual sets. Confirm the final representation aligns with downstream functions, e.g. Piecewise, which expect valid set objects.",
+            "importance": 10,
+            "knowledge_type": "architectural_pattern"
+        },
+        {
+            "id": 3,
+            "content": "Ensure references to local or global variables remain consistent, verifying no accidental misnaming or prior usage occurs. This helps avoid NameError or UnboundLocalError from ephemeral or partially removed placeholders.",
+            "importance": 5,
+            "knowledge_type": "coding_convention"
+        },
+        {
+            "id": 4,
+            "content": "Use the repository\u2019s search APIs (search_class, search_method, etc.) to locate relevant code references swiftly, maintaining clarity on naming conventions to prevent confusion when correlating error messages with actual implementations.",
+            "importance": 8,
+            "knowledge_type": "repository_structure"
+        },
+        {
+            "id": 5,
+            "content": "When creating generators that yield mutable data structures, ensure each yield is a distinct copy, preventing in-place modifications from polluting previously returned results.",
+            "importance": 5,
+            "knowledge_type": "architectural_pattern"
+        },
+        {
+            "id": 6,
+            "content": "When seeking a balance between performance and correctness, introduce optional parameters or separate APIs that yield copies of mutable structures. This way, advanced users can opt into optimization while new users avoid unintentional side effects from shared references.",
+            "importance": 3,
+            "knowledge_type": "architectural_pattern"
+        }
+    ],
+    "scikit-learn": [
+        {
+            "id": 0,
+            "content": "Test files in sklearn/tests/test_base.py or test_text.py often show edge cases for parameters and text transformations. They are a key reference for discovering usage patterns and potential pitfalls.",
+            "importance": 5,
+            "knowledge_type": "repository_structure"
+        },
+        {
+            "id": 1,
+            "content": "When including new dependencies or verifying existing ones, also ensure they are listed in show_versions if they are essential for debugging or usage. For instance, joblib must be included if scikit-learn version is above 0.20.",
+            "importance": 5,
+            "knowledge_type": "error_pattern"
+        },
+        {
+            "id": 2,
+            "content": "This project organizes estimator logic with shared patterns in base modules (such as sklearn/base.py). When dealing with aggregator logic (voting or bagging), carefully handle None estimators to avoid spurious errors or attribute issues.",
+            "importance": 4,
+            "knowledge_type": "repository_structure"
+        },
+        {
+            "id": 3,
+            "content": "When a parameter is in both constructor and fit or in a base class constructor but missing in a child, unify them to avoid mismatch. The method-level parameter overrides only if explicitly set, else default to the parent's or constructor-level parameter. This preserves consistent usage and prevents silent overrides.",
+            "importance": 5,
+            "knowledge_type": "coding_convention"
+        }
+    ],
+    "psf": [
+        {
+            "id": 0,
+            "content": "In 'prepare_headers' (requests/models.py::PreparedRequest), headers with a None value become the literal 'None' string if not filtered out. Always remove such keys to avoid invalid headers.",
+            "importance": 4,
+            "knowledge_type": "error_pattern"
+        },
+        {
+            "id": 1,
+            "content": "Session-level headers are merged with request-specific headers in 'merge_setting' (requests/sessions.py). Headers set to None are removed, preventing accidental inclusion of a 'None' string value.",
+            "importance": 4,
+            "knowledge_type": "coding_convention"
+        },
+        {
+            "id": 2,
+            "content": "When fixing authentication issues, relevant logic often appears in 'requests/auth.py' under classes like 'HTTPDigestAuth', where RFC2617 directives (e.g. qop, nonce, realm) are implemented.",
+            "importance": 2,
+            "knowledge_type": "repository_structure"
+        }
+    ],
+    "sphinx-doc": [
+        {
+            "id": 0,
+            "content": "Some built-in Sphinx pages and advanced doc features may not appear in 'env.found_docs'. Ensure code gracefully handles these cases without triggering warnings for nonexisting documents.",
+            "importance": 4,
+            "knowledge_type": "error_pattern"
+        },
+        {
+            "id": 1,
+            "content": "In this repository, the autodoc extension primarily relies on 'sphinx/ext/autodoc/__init__.py'. Also note that 'sphinx/ext/napoleon/__init__.py' implements '_skip_member' logic for decorated methods. Pay attention to how '__all__' is interpreted; an explicitly empty '__all__' must result in no members being documented.",
+            "importance": 4,
+            "knowledge_type": "architectural_pattern"
+        },
+        {
+            "id": 2,
+            "content": "When fixing toctree or cross-reference issues, focus on 'sphinx/directives/other.py' and handle built-in pages as special cases, rather than incorporating them into source discovery.",
+            "importance": 4,
+            "knowledge_type": "repository_structure"
+        }
+    ],
+    "matplotlib": [
+        {
+            "id": 0,
+            "content": "Check if specialized geometry handling (2D vs 3D) in 'mpl_toolkits' modules includes the proper methods or overrides for coordinate transforms and color settings, preventing attribute mismatches across classes.",
+            "importance": 2,
+            "knowledge_type": "architectural_pattern"
+        },
+        {
+            "id": 1,
+            "content": "When adjusting alignment with HPacker or offset-based classes, verify that 'top' and 'bottom' are not inverted. Ensure bounding rectangles and offsets match the intended vertical alignment.",
+            "importance": 4,
+            "knowledge_type": "error_pattern"
+        },
+        {
+            "id": 2,
+            "content": "When implementing or modifying spectral analysis or window correction logic, confirm negative-valued windows are handled correctly. Avoid using np.abs for preserving true power in PSD computations, ensuring sums or sums of squares align with actual window values.",
+            "importance": 6,
+            "knowledge_type": "repository_structure"
+        }
+    ],
+    "django": [
+        {
+            "id": 0,
+            "content": "Cross-reference meta-class logic and rename references in the autodetector to always fetch from to_state with the new model name. Confirm that remote_field indicates an inherited PK, thus avoiding unnecessary warnings. If hashing depends on model attributes, consider alternatives to preserve immutability.",
+            "importance": 5,
+            "knowledge_type": "repository_structure"
+        },
+        {
+            "id": 1,
+            "content": "When overriding Django settings or changing them at runtime, avoid static module-level references that rely on initial settings state. Use dynamic lookups or re-initialize references so that updated settings are consistently applied.",
+            "importance": 12,
+            "knowledge_type": "error_pattern"
+        },
+        {
+            "id": 2,
+            "content": "When refactoring special-case or zero-quantity paths in the app\u2019s code (like max_post_process_passes=0), skip irrelevant steps entirely to avoid referencing uninitialized variables. If the field or setting indicates no passes or empty states, ensure the logic short-circuits properly. This avoids spurious errors from referencing variables that never get assigned.",
+            "importance": 4,
+            "knowledge_type": "coding_convention"
+        },
+        {
+            "id": 3,
+            "content": "For Q objects or when converting user inputs to decimal/string in model or form fields, always check for invalid types (e.g., dictionaries) before processing. Raise ValidationError if an invalid type is encountered to prevent TypeError.",
+            "importance": 3,
+            "knowledge_type": "error_pattern"
+        },
+        {
+            "id": 4,
+            "content": "When modifying or creating management commands (including handling subparsers), ensure subparsers are instances of CommandParser with inherited parameters. Avoid passing unnecessary arguments if they can be inferred from existing structures. This preserves custom error formatting and prevents duplication or mismatch.",
+            "importance": 9,
+            "knowledge_type": "error_pattern"
+        },
+        {
+            "id": 5,
+            "content": "When customizing admin logic in Django, including catch-all or fallback views, confirm usage of request.path vs request.path_info. request.path preserves the script name prefix required in certain redirects, while request.path_info omits it. Ensure to separate resolution from the final redirect to keep path_info clean while preserving the prefix in the final URL, preventing forced script name issues. Additionally, ensure admin checks referencing placeholders or fields include the actual field name in error messages for clarity.",
+            "importance": 4,
+            "knowledge_type": "architectural_pattern"
+        },
+        {
+            "id": 6,
+            "content": "When validating foreign key references that must include objects bypassing default filters, leverage _base_manager rather than _default_manager. This ensures valid objects are not erroneously excluded by default filtering at validation time.",
+            "importance": 2,
+            "knowledge_type": "coding_convention"
+        },
+        {
+            "id": 7,
+            "content": "When handling multi-database usage with natural keys, confirm db_manager() is used. This ensures foreign key references are fetched from the correct database, preventing DoesNotExist errors.",
+            "importance": 2,
+            "knowledge_type": "architectural_pattern"
+        },
+        {
+            "id": 8,
+            "content": "When unregistering or registering custom lookups in RegisterLookupMixin, always call _clear_cached_lookups afterward to avoid stale lookup references and maintain consistency with register_lookup.",
+            "importance": 2,
+            "knowledge_type": "repository_structure"
+        },
+        {
+            "id": 9,
+            "content": "When using partial or callable references in fields or decorators, ensure that function attributes (e.g. __name__, __module__, __doc__) remain intact. Wrap partial objects as needed to preserve these attributes, preventing runtime errors if code or frameworks rely on them. Store only the callable reference to avoid early evaluation.",
+            "importance": 6,
+            "knowledge_type": "coding_convention"
+        },
+        {
+            "id": 10,
+            "content": "When formatting numeric year fields, ensure correct zero-padding of partial years. Use string formatting methods (e.g., %02d) to keep consistent with Python\u2019s built-in date formatting. Refrain from naive slicing or substring extraction to avoid edge cases for years < 1000.",
+            "importance": 5,
+            "knowledge_type": "coding_convention"
+        },
+        {
+            "id": 11,
+            "content": "When retrieving fields from database insert operations using returning_fields, ensure from_db_value or equivalent logic is consistently applied, matching standard retrieval. This prevents raw values from bypassing normal conversions, especially for custom fields that rely on from_db_value to transform them into appropriate Python objects.",
+            "importance": 4,
+            "knowledge_type": "coding_convention"
+        },
+        {
+            "id": 12,
+            "content": "GRANDMA LIKES PASTA",
+            "importance": 4,
+            "knowledge_type": "coding_convention"
+        }
+    ],
+    "pytest-dev": [
+        {
+            "id": 0,
+            "content": "When modifying the '--pastebin' feature in 'src/_pytest/pastebin.py', confirm external service endpoints remain valid. Testing in 'testing/test_pastebin.py' helps ensure the payload format and 'lexer' settings work for arbitrary text output.",
+            "importance": 3,
+            "knowledge_type": "coding_convention"
+        },
+        {
+            "id": 1,
+            "content": "When dealing with skipif/xfail conditions, avoid caching expression contexts across modules. Evaluate them freshly for each test to prevent unexpected multi-file behavior. Also ensure runxfail doesn't overshadow skip location references. Additionally, ensure skip detection checks both test methods and classes to avoid incorrectly invoking teardown for class-level skipped tests, especially with --pdb.",
+            "importance": 7,
+            "knowledge_type": "architectural_pattern"
+        },
+        {
+            "id": 2,
+            "content": "When collecting tests, ensure symlinks to directories are followed to preserve expected behavior. Verify that directory-walking functions like 'visit()' do not skip symlinks unless explicitly intended. This prevents missing or uncollected tests in symlinked directories.",
+            "importance": 6,
+            "knowledge_type": "repository_structure"
+        },
+        {
+            "id": 3,
+            "content": "When verifying membership in sentinel objects (like mock.DEFAULT), avoid using 'in' with complex objects such as NumPy arrays. Compare identity or equality for each sentinel to prevent ambiguous truth-value errors.",
+            "importance": 5,
+            "knowledge_type": "error_pattern"
+        }
+    ],
+    "mwaskom": [
+        {
+            "id": 0,
+            "content": "Always convert or map boolean values to numeric or categorical representations before applying color scales, preventing unsupported numeric operations on booleans.",
+            "importance": 4,
+            "knowledge_type": "application_domain"
+        },
+        {
+            "id": 1,
+            "content": "Check for incomplete or null data during polynomial or numeric transformations. Drop or appropriately handle missing values to prevent library exceptions such as convergence errors.",
+            "importance": 4,
+            "knowledge_type": "error_pattern"
+        }
+    ]
+}
